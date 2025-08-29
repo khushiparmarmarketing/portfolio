@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Marketing Portfolio</title>
+  <title>Khushi Parmar | Marketing Portfolio</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,71 +11,125 @@
       padding: 0;
       background: #f9fafb;
       color: #333;
+      scroll-behavior: smooth;
     }
     header {
-      background: #0f172a;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
       color: #fff;
-      padding: 2rem;
+      padding: 4rem 2rem;
       text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      font-weight: bold;
+      animation: fadeInDown 1.2s;
     }
     header p {
       margin-top: .5rem;
-      font-size: 1.2rem;
-      color: #cbd5e1;
+      font-size: 1.3rem;
+      color: #f1f5f9;
+      animation: fadeInUp 1.5s;
+    }
+    .hero-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: .8rem 1.6rem;
+      background: #fff;
+      color: #2563eb;
+      border-radius: .5rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background .3s, color .3s;
+    }
+    .hero-btn:hover {
+      background: #2563eb;
+      color: #fff;
     }
     nav {
       background: #1e293b;
-      padding: .5rem;
+      padding: .7rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav a {
       color: #f8fafc;
       margin: 0 1rem;
       text-decoration: none;
       font-weight: 500;
+      transition: color .3s;
+    }
+    nav a:hover {
+      color: #38bdf8;
     }
     section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
     }
     section h2 {
       border-bottom: 2px solid #e2e8f0;
       padding-bottom: .5rem;
       margin-bottom: 1rem;
       color: #0f172a;
+      font-size: 1.8rem;
     }
-    .skills, .projects, .samples {
+    .skills, .projects, .samples, .testimonials {
       display: grid;
       gap: 1.5rem;
     }
     .skill-list span {
       display: inline-block;
-      background: #e2e8f0;
-      padding: .5rem 1rem;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: .6rem 1.2rem;
       border-radius: 9999px;
       margin: .3rem;
-      font-size: .9rem;
+      font-size: .95rem;
+      font-weight: 500;
+      transition: transform .3s;
     }
-    .project, .sample {
+    .skill-list span:hover {
+      transform: scale(1.05);
+      background: #bae6fd;
+    }
+    .project, .sample, .testimonial {
       background: #fff;
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: .75rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .project:hover, .sample:hover, .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
     }
     .project h3 {
       margin-top: 0;
+      color: #2563eb;
     }
-    footer {
+    .stats {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .stat {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: .75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
       text-align: center;
-      padding: 1rem;
-      background: #0f172a;
-      color: #cbd5e1;
-      margin-top: 2rem;
+      flex: 1;
+      min-width: 180px;
+    }
+    .stat h3 {
+      color: #2563eb;
+      font-size: 2rem;
+      margin: 0;
     }
     img.sample-img {
       width: 100%;
@@ -84,7 +138,7 @@
     .contact a {
       display: inline-block;
       margin: .5rem;
-      padding: .6rem 1.2rem;
+      padding: .8rem 1.4rem;
       background: #2563eb;
       color: white;
       border-radius: .5rem;
@@ -94,19 +148,37 @@
     .contact a:hover {
       background: #1e40af;
     }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0f172a;
+      color: #cbd5e1;
+      margin-top: 2rem;
+    }
+    @keyframes fadeInDown {
+      from {opacity:0; transform: translateY(-20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity:0; transform: translateY(20px);}
+      to {opacity:1; transform: translateY(0);}
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Khushi Parmar</h1>
     <p>Marketing Specialist | Digital Strategy | Brand Growth</p>
+    <a href="resume.pdf" class="hero-btn" target="_blank">Download Resume</a>
   </header>
 
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
+    <a href="#stats">Stats</a>
     <a href="#projects">Projects</a>
     <a href="#samples">Samples</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -121,6 +193,24 @@
       <span>SEO</span><span>Google Analytics</span><span>Facebook Ads</span>
       <span>Email Marketing</span><span>Content Strategy</span><span>Canva</span>
       <span>HubSpot</span><span>Market Research</span>
+    </div>
+  </section>
+
+  <section id="stats">
+    <h2>Highlights</h2>
+    <div class="stats">
+      <div class="stat">
+        <h3>+200%</h3>
+        <p>Instagram follower growth</p>
+      </div>
+      <div class="stat">
+        <h3>+70%</h3>
+        <p>Organic traffic increase</p>
+      </div>
+      <div class="stat">
+        <h3>₹10L+</h3>
+        <p>Ad spend managed</p>
+      </div>
     </div>
   </section>
 
@@ -156,15 +246,29 @@
     </div>
   </section>
 
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>“Khushi’s innovative strategies boosted our brand presence beyond expectations.”</p>
+        <strong>- Client A</strong>
+      </div>
+      <div class="testimonial">
+        <p>“Her ability to analyze data and turn it into actionable campaigns is outstanding.”</p>
+        <strong>- Manager B</strong>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>Interested in working together? Get in touch!</p>
     <a href="mailto:khushi.parmar@email.com">Email Me</a>
-    <a href="https://linkedin.com/in/janedoe" target="_blank">LinkedIn</a>
+    <a href="https://linkedin.com/in/khushiparmar" target="_blank">LinkedIn</a>
   </section>
 
   <footer>
-    <p>&copy; 2025  Khushi Parmar. All rights reserved.</p>
+    <p>&copy; 2025 Khushi Parmar. All rights reserved.</p>
   </footer>
 </body>
 </html>
