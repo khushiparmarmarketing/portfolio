@@ -4,31 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Khushi Parmar | Marketing Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #1e40af;
+      --secondary-color: #3b82f6;
+      --light-bg: #f5f7fa;
+      --dark-bg: #1f2937;
+      --light-text: #fff;
+      --dark-text: #1f2937;
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9fafb;
-      color: #333;
+      background: var(--light-bg);
+      color: var(--dark-text);
       scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
     }
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--light-text);
+    }
+
     header {
-      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: #fff;
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
       text-align: center;
+      position: relative;
     }
     header h1 {
       margin: 0;
+      font-family: 'Montserrat', sans-serif;
       font-size: 3rem;
-      font-weight: bold;
+      font-weight: 600;
       animation: fadeInDown 1.2s;
     }
     header p {
       margin-top: .5rem;
       font-size: 1.3rem;
-      color: #f1f5f9;
+      color: #e0f2fe;
       animation: fadeInUp 1.5s;
     }
     .hero-btn {
@@ -36,16 +54,17 @@
       margin-top: 1.5rem;
       padding: .8rem 1.6rem;
       background: #fff;
-      color: #2563eb;
+      color: var(--primary-color);
       border-radius: .5rem;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       transition: background .3s, color .3s;
     }
     .hero-btn:hover {
-      background: #2563eb;
+      background: var(--primary-color);
       color: #fff;
     }
+
     nav {
       background: #1e293b;
       padding: .7rem;
@@ -61,55 +80,56 @@
       font-weight: 500;
       transition: color .3s;
     }
-    nav a:hover {
-      color: #38bdf8;
+    nav a.active {
+      color: var(--secondary-color);
+      font-weight: 600;
     }
+    nav a:hover {
+      color: var(--secondary-color);
+    }
+
     section {
       max-width: 1000px;
       margin: 3rem auto;
-      padding: 0 1.5rem;
+      padding: 2rem 1.5rem;
+      border-radius: 1rem;
+    }
+    section:nth-of-type(even) {
+      background: #e0f2fe;
+    }
+    body.dark section:nth-of-type(even) {
+      background: #2d3748;
     }
     section h2 {
-      border-bottom: 2px solid #e2e8f0;
+      border-bottom: 2px solid var(--secondary-color);
       padding-bottom: .5rem;
       margin-bottom: 1rem;
-      color: #0f172a;
-      font-size: 1.8rem;
+      color: var(--primary-color);
     }
-    .skills, .projects, .samples, .testimonials {
-      display: grid;
-      gap: 1.5rem;
+
+    /* Skills */
+    .skill {
+      margin-bottom: 1rem;
     }
-    .skill-list span {
-      display: inline-block;
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: .6rem 1.2rem;
-      border-radius: 9999px;
-      margin: .3rem;
-      font-size: .95rem;
+    .skill-name {
+      margin-bottom: .3rem;
       font-weight: 500;
-      transition: transform .3s;
     }
-    .skill-list span:hover {
-      transform: scale(1.05);
-      background: #bae6fd;
+    .skill-bar {
+      background: #cbd5e1;
+      border-radius: 9999px;
+      overflow: hidden;
+      height: 20px;
     }
-    .project, .sample, .testimonial {
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: .75rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,.08);
-      transition: transform .3s, box-shadow .3s;
+    .skill-bar-fill {
+      height: 100%;
+      width: 0;
+      background: var(--primary-color);
+      border-radius: 9999px;
+      transition: width 1.5s;
     }
-    .project:hover, .sample:hover, .testimonial:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,.12);
-    }
-    .project h3 {
-      margin-top: 0;
-      color: #2563eb;
-    }
+
+    /* Stats */
     .stats {
       display: flex;
       gap: 2rem;
@@ -126,53 +146,98 @@
       flex: 1;
       min-width: 180px;
     }
-    .stat h3 {
-      color: #2563eb;
-      font-size: 2rem;
-      margin: 0;
+    body.dark .stat { background: #374151; color: #fff; }
+    .stat h3 { color: var(--primary-color); font-size: 2rem; margin: 0; }
+
+    /* Projects & Samples */
+    .card-container {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-    img.sample-img {
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: .75rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+    body.dark .card { background: #374151; color: #fff; }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    }
+    .card img {
       width: 100%;
       border-radius: .5rem;
+      margin-bottom: .5rem;
     }
+
+    /* Testimonials Carousel */
+    .testimonial-container { position: relative; overflow: hidden; }
+    .testimonial-slide { display: none; text-align: center; padding: 1rem; }
+    .testimonial-slide.active { display: block; }
+
+    /* Contact */
     .contact a {
       display: inline-block;
       margin: .5rem;
       padding: .8rem 1.4rem;
-      background: #2563eb;
+      background: var(--primary-color);
       color: white;
       border-radius: .5rem;
       text-decoration: none;
       transition: background .3s;
     }
-    .contact a:hover {
-      background: #1e40af;
+    .contact a:hover { background: var(--secondary-color); }
+
+    .floating-contact {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+      transition: background .3s, transform .3s;
+      z-index: 1000;
     }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #0f172a;
-      color: #cbd5e1;
-      margin-top: 2rem;
+    .floating-contact:hover {
+      background: var(--secondary-color);
+      transform: scale(1.05);
     }
-    @keyframes fadeInDown {
-      from {opacity:0; transform: translateY(-20px);}
-      to {opacity:1; transform: translateY(0);}
+
+    /* Dark Mode Toggle */
+    .dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: .5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      z-index: 1000;
     }
-    @keyframes fadeInUp {
-      from {opacity:0; transform: translateY(20px);}
-      to {opacity:1; transform: translateY(0);}
-    }
+    .dark-toggle:hover { background: var(--secondary-color); }
+
+    @keyframes fadeInDown { from {opacity:0; transform: translateY(-20px);} to {opacity:1; transform: translateY(0);} }
+    @keyframes fadeInUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
   </style>
 </head>
 <body>
+  <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
   <header>
     <h1>Khushi Parmar</h1>
     <p>Marketing Specialist | Digital Strategy | Brand Growth</p>
     <a href="resume.pdf" class="hero-btn" target="_blank">Download Resume</a>
   </header>
 
-  <nav>
+  <nav id="navbar">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#stats">Stats</a>
@@ -189,43 +254,41 @@
 
   <section id="skills">
     <h2>Skills</h2>
-    <div class="skill-list">
-      <span>SEO</span><span>Google Analytics</span><span>Facebook Ads</span>
-      <span>Email Marketing</span><span>Content Strategy</span><span>Canva</span>
-      <span>HubSpot</span><span>Market Research</span>
+    <div class="skill">
+      <div class="skill-name">SEO</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percentage="90%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Google Analytics</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percentage="85%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Facebook Ads</div>
+      <div class="skill-bar"><div class="skill-bar-fill" data-percentage="80%"></div></div>
     </div>
   </section>
 
   <section id="stats">
     <h2>Highlights</h2>
     <div class="stats">
-      <div class="stat">
-        <h3>+200%</h3>
-        <p>Instagram follower growth</p>
-      </div>
-      <div class="stat">
-        <h3>+70%</h3>
-        <p>Organic traffic increase</p>
-      </div>
-      <div class="stat">
-        <h3>₹10L+</h3>
-        <p>Ad spend managed</p>
-      </div>
+      <div class="stat"><h3 data-target="200">0%</h3><p>Instagram follower growth</p></div>
+      <div class="stat"><h3 data-target="70">0%</h3><p>Organic traffic increase</p></div>
+      <div class="stat"><h3 data-target="10">0L+</h3><p>Ad spend managed</p></div>
     </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">
+    <div class="card-container">
+      <div class="card">
         <h3>Social Media Growth Campaign</h3>
         <p>Increased Instagram followers by 200% in 3 months through engaging content and targeted ads.</p>
       </div>
-      <div class="project">
+      <div class="card">
         <h3>SEO Optimization</h3>
         <p>Boosted organic traffic by 70% for a client by optimizing on-page SEO and running keyword campaigns.</p>
       </div>
-      <div class="project">
+      <div class="card">
         <h3>Email Marketing Automation</h3>
         <p>Created automated campaigns with 40% open rates and 12% conversions.</p>
       </div>
@@ -234,29 +297,17 @@
 
   <section id="samples">
     <h2>Work Samples</h2>
-    <div class="samples">
-      <div class="sample">
-        <img src="https://via.placeholder.com/800x400" alt="Sample 1" class="sample-img" />
-        <p>Sample Social Media Post Design</p>
-      </div>
-      <div class="sample">
-        <img src="https://via.placeholder.com/800x400" alt="Sample 2" class="sample-img" />
-        <p>Email Newsletter Example</p>
-      </div>
+    <div class="card-container">
+      <div class="card"><img src="https://via.placeholder.com/800x400" alt="Sample 1"><p>Sample Social Media Post Design</p></div>
+      <div class="card"><img src="https://via.placeholder.com/800x400" alt="Sample 2"><p>Email Newsletter Example</p></div>
     </div>
   </section>
 
   <section id="testimonials">
     <h2>Testimonials</h2>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p>“Khushi’s innovative strategies boosted our brand presence beyond expectations.”</p>
-        <strong>- Client A</strong>
-      </div>
-      <div class="testimonial">
-        <p>“Her ability to analyze data and turn it into actionable campaigns is outstanding.”</p>
-        <strong>- Manager B</strong>
-      </div>
+    <div class="testimonial-container">
+      <div class="testimonial-slide active"><p>“Khushi’s innovative strategies boosted our brand presence beyond expectations.”</p><strong>- Client A</strong></div>
+      <div class="testimonial-slide"><p>“Her ability to analyze data and turn it into actionable campaigns is outstanding.”</p><strong>- Manager B</strong></div>
     </div>
   </section>
 
@@ -267,8 +318,70 @@
     <a href="https://linkedin.com/in/khushiparmar" target="_blank">LinkedIn</a>
   </section>
 
+  <a href="#contact" class="floating-contact">Contact Me</a>
+
   <footer>
     <p>&copy; 2025 Khushi Parmar. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Skill bar animation
+    const skillFills = document.querySelectorAll('.skill-bar-fill');
+    window.addEventListener('scroll', () => {
+      skillFills.forEach(fill => {
+        const top = fill.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (top < windowHeight - 50) {
+          fill.style.width = fill.dataset.percentage;
+        }
+      });
+    });
+
+    // Stats count-up animation
+    const counters = document.querySelectorAll('.stat h3');
+    const options = { threshold: 0.5 };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          const target = +entry.target.dataset.target;
+          let count = 0;
+          const interval = setInterval(() => {
+            count += 1;
+            entry.target.textContent = (target >= 100 ? count + '%' : count + (target === 10 ? 'L+' : '%'));
+            if(count >= target) clearInterval(interval);
+          }, 20);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+    counters.forEach(counter => observer.observe(counter));
+
+    // Testimonials carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 5000);
+
+    // Scroll spy for navbar
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if(pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+      navLinks.forEach(a => a.classList.remove('active'));
+      if(current) document.querySelector('nav a[href="#'+current+'"]').classList.add('active');
+    });
+  </script>
 </body>
 </html>
