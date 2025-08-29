@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #333;
+    }
+    header {
+      background: #0f172a;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin-top: .5rem;
+      font-size: 1.2rem;
+      color: #cbd5e1;
+    }
+    nav {
+      background: #1e293b;
+      padding: .5rem;
+      text-align: center;
+    }
+    nav a {
+      color: #f8fafc;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    section h2 {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: .5rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+    .skills, .projects, .samples {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .skill-list span {
+      display: inline-block;
+      background: #e2e8f0;
+      padding: .5rem 1rem;
+      border-radius: 9999px;
+      margin: .3rem;
+      font-size: .9rem;
+    }
+    .project, .sample {
+      background: #fff;
+      padding: 1rem;
+      border-radius: .75rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    }
+    .project h3 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0f172a;
+      color: #cbd5e1;
+      margin-top: 2rem;
+    }
+    img.sample-img {
+      width: 100%;
+      border-radius: .5rem;
+    }
+    .contact a {
+      display: inline-block;
+      margin: .5rem;
+      padding: .6rem 1.2rem;
+      background: #2563eb;
+      color: white;
+      border-radius: .5rem;
+      text-decoration: none;
+      transition: background .3s;
+    }
+    .contact a:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Khushi Parmar</h1>
+    <p>Marketing Specialist | Digital Strategy | Brand Growth</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#samples">Samples</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Khushi, a passionate marketing professional with experience in digital campaigns, social media growth, SEO, and content strategy. I love helping brands connect with their audiences and grow through creative, data-driven strategies.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-list">
+      <span>SEO</span><span>Google Analytics</span><span>Facebook Ads</span>
+      <span>Email Marketing</span><span>Content Strategy</span><span>Canva</span>
+      <span>HubSpot</span><span>Market Research</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Social Media Growth Campaign</h3>
+        <p>Increased Instagram followers by 200% in 3 months through engaging content and targeted ads.</p>
+      </div>
+      <div class="project">
+        <h3>SEO Optimization</h3>
+        <p>Boosted organic traffic by 70% for a client by optimizing on-page SEO and running keyword campaigns.</p>
+      </div>
+      <div class="project">
+        <h3>Email Marketing Automation</h3>
+        <p>Created automated campaigns with 40% open rates and 12% conversions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="samples">
+    <h2>Work Samples</h2>
+    <div class="samples">
+      <div class="sample">
+        <img src="https://via.placeholder.com/800x400" alt="Sample 1" class="sample-img" />
+        <p>Sample Social Media Post Design</p>
+      </div>
+      <div class="sample">
+        <img src="https://via.placeholder.com/800x400" alt="Sample 2" class="sample-img" />
+        <p>Email Newsletter Example</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Interested in working together? Get in touch!</p>
+    <a href="mailto:khushi.parmar@email.com">Email Me</a>
+    <a href="https://linkedin.com/in/janedoe" target="_blank">LinkedIn</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025  Khushi Parmar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
